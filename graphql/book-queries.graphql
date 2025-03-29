@@ -1,0 +1,79 @@
+////////////////////////////////////// findAllBook
+
+query{
+  findAllBooks{
+    id
+    title
+    author
+    price
+  }
+}
+
+////////////////////////////////////// filtering and searching
+
+
+query{
+  findAllBooks(filters: {title: "o", minPrice: 23000, maxPrice: 66000}){
+    id
+    title
+    author
+    price
+  }
+}
+
+query{
+  findAllBooks(filters: {sortBy: "price", order: "ASC"}){
+    id
+    title
+    author
+    price
+  }
+}
+
+query{
+  findAllBooks(filters: {
+  genre: "Fiction",
+  minPrice: 0,
+  maxPrice: 150000,
+  excludeBookId: 10,
+  sortBy: "rating",
+  order: "DESC",
+  limit: 5
+  }){
+    id
+    title
+    author
+    price
+  }
+}
+
+////////////////////////////////////// addBook
+
+mutation{
+  createBook(createBookInput: {title: "Rizq", genre: "Fiction", author: "Someone", price: 14000}){
+    id
+		title
+    author
+    price
+    rating
+    soldCopies
+}
+}
+////////////////////////////////////// updateBook
+
+mutation{
+	updateBook(id: 1, updateBookInput: {price: 23000}){
+    id
+    title
+    author
+    price
+    createdAt
+  }
+}
+
+////////////////////////////////////// deleteBook
+
+mutation{
+  removeBook(id: 1)
+}
+

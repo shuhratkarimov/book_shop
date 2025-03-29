@@ -1,0 +1,35 @@
+//////////////////////  foydalanuvchi filter bilan va filtersiz qidirganida eslab qoladi
+
+query {
+  books(userId: 5) {
+    id
+    title
+    genre
+    price
+    rating
+  }
+}
+
+////////////////////// foydalanuvchi qidiruvlariga asoslanib, unga tavsiyalar beradi (TOP)
+
+query {
+  userRecommendations(userId: 5, topN: 5) {
+    id
+    title
+    genre
+    price
+    rating
+  }
+}
+
+/////////////////////// kitob id si beriladi va shu kitob janriga aloqador TOP kitoblar tavsiya qilinadi
+
+query {
+  recommendations(bookId: 1, topN: 5) {
+    id
+    title
+    genre
+    price
+    rating
+  }
+}

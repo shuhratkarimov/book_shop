@@ -1,0 +1,61 @@
+////////////////////////////////////// register
+
+mutation {
+  register(userData: { 
+    username: "shuhrat"
+    email: "shuhratkarimov.dev@gmail.com", 
+    password: "11111"
+  }) {
+		message
+  }
+}
+
+////////////////////////////////////// verify
+
+  mutation {
+    verify(verifyDto: { 
+      email: "shuhratkarimov.dev@gmail.com",
+      verificationCode: 953376
+    }) {
+      message
+    }
+  }
+
+////////////////////////////////////// login
+
+mutation {
+  login(loginDto: {
+    email: "shuhratkarimov.dev@gmail.com",
+    password: "12345"
+  }){
+    message
+  }
+}
+
+////////////////////////////////////// logout
+
+mutation{
+  logout{
+    message
+  }
+}
+
+////////////////////////////////////// forgotPassword
+
+mutation {
+  forgotPassword(data: { email: "shuhratkarimov.dev@gmail.com" }) {
+    message
+  }
+}
+
+////////////////////////////////////// verifyForgotPassword
+
+mutation {
+  verifyForgotPassword(data: { 
+    email: "shuhratkarimov.dev@gmail.com",
+    code: 8110154,
+    newPassword: "12345"
+  }) {
+		message
+  }
+}

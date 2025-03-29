@@ -1,0 +1,27 @@
+//////////////////////////////// kitob sotib olish
+
+mutation {
+  purchases(userId: 1, bookId: 1) {
+    id
+    purchasedAt
+  }
+}
+
+//////////////////////////////// xarid qilingan kitoblarni egasi bilan ko'rsatish
+
+query {
+  getPurchases(userId: 1) {
+    id
+    book {
+      id
+      title
+      author
+    }
+    user {
+      id
+      username
+      email
+    }
+    purchasedAt
+  }
+}
