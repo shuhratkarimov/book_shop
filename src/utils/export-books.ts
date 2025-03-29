@@ -6,14 +6,15 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const AppDataSource = new DataSource({
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'shuhrat0049',
-  database: 'graphql',
-  entities: [BookEntity, PurchaseEntity, UserEntity], // ✅ Barcha entity'lar qo'shildi
-  synchronize: true,
+    username: process.env.DB_USERNAME as string,
+    password: process.env.DB_PASSWORD as string,
+    host: process.env.DB_HOST as string,
+    port: parseInt(process.env.DB_PORT as string),
+    database: process.env.DB_DATABASE_NAME as string,
+    type: "postgres",
+    entities: [UserEntity, BookEntity, PurchaseEntity],
+    synchronize: false,
+    logging: ["error"]
 });
 
 async function exportBooksToCSV() {
